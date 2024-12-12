@@ -15,13 +15,17 @@
         function translateText() {
             const inputText = document.getElementById('input-text').value;
             const resultDiv = document.getElementById('result');
-
+    
             axios.post('/translate', { text: inputText })
                 .then(response => {
-                    resultDiv.textContent = 'Translation: ' + response.data.translation;
+                    if (response.data.success) {
+                        resultDiv.textContent = 'Translation: ' + response.data.translation;
+                    } else {
+                        resultDiv.textContent = 'Translation failed: ' + response.data.error;
+                    }
                 })
                 .catch(error => {
-                    resultDiv.textContent = 'Translation failed';
+                    resultDiv.textContent = 'Error: ' + error.message;
                 });
         }
     </script>
