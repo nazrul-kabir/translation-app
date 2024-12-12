@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>English to Finnish Translator</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>English to Finnish Translator</h1>
+    <textarea id="input-text" placeholder="Enter text to translate"></textarea>
+    <button onclick="translateText()">Translate</button>
+    <div id="result"></div>
+
+    <script>
+        function translateText() {
+            const inputText = document.getElementById('input-text').value;
+            const resultDiv = document.getElementById('result');
+
+            axios.post('/translate', { text: inputText })
+                .then(response => {
+                    resultDiv.textContent = 'Translation: ' + response.data.translation;
+                })
+                .catch(error => {
+                    resultDiv.textContent = 'Translation failed';
+                });
+        }
+    </script>
+</body>
+</html>
