@@ -1,0 +1,54 @@
+# Virtual Environment
+translation_env/
+venv/
+*.venv
+.env
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE and editor folders
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dependency directories
+lib/
+libs/
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Hugging Face model cache
+.cache/
+models/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
