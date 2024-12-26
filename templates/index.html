@@ -21,6 +21,14 @@
             margin-top: 20px;
             font-weight: bold;
         }
+        #suggestions {
+            margin-top: 20px;
+            color: #555;
+        }
+        .suggestion {
+            cursor: pointer;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -28,6 +36,12 @@
     <textarea id="input-text" placeholder="Enter text to translate"></textarea>
     <button onclick="translateText()">Translate</button>
     <div id="result"></div>
+    <div id="suggestions">
+        Suggestions: 
+        <span class="suggestion" onclick="useSuggestion(this)">How are you?</span>, 
+        <span class="suggestion" onclick="useSuggestion(this)">Today is Sunday</span>,
+        <span class="suggestion" onclick="useSuggestion(this)">Finland ranks as the happiest country in the world in the UN World Happiness Report.</span>, 
+    </div>
 
     <script>
         function translateText() {
@@ -45,6 +59,10 @@
                 .catch(error => {
                     resultDiv.textContent = 'Error: ' + error.message;
                 });
+        }
+        function useSuggestion(element) {
+            const suggestionText = element.textContent;
+            document.getElementById('input-text').value = suggestionText;
         }
     </script>
 </body>
